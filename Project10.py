@@ -15,19 +15,23 @@ dictionary={"+":add,
             "*":multiply,
             "/":divide}
 
-should_continue=True
-number1 = float(input("Enter the first number:"))
-while should_continue:
-    for symbol in dictionary:
-        print(symbol)
-    operation = input("Enter the operation:")
-    number2 = float(input("Enter the second number:"))
-    answer=dictionary[operation](number1,number2)
-    print(answer)
+def calculator():
+    should_continue=True
+    number1 = float(input("Enter the first number:"))
+    while should_continue:
+        for symbol in dictionary:
+            print(symbol)
+        operation = input("Enter the operation:")
+        number2 = float(input("Enter the second number:"))
+        answer=dictionary[operation](number1,number2)
+        print(answer)
 
-    result=input(f"Type 'Y' if you want to continue with {answer},type 'N' if you want to provide different value:").lower()
-    if result=="Y":
-        number1=answer
-
+        result=input(f"Type 'y' if you want to continue with {answer},type 'n' if you want to provide different value:")
+        if result=="y":
+            number1=answer
+        else:
+            should_continue=False
+            print("\n"*20)
+calculator()
 
 
